@@ -1,0 +1,19 @@
+{
+  "name": "queen-stephanie-official",
+  "version": "1.0.0",
+  "description": "Official Web Experience for Queen Stephanie — Crush Queen Stephanie | Power & pleasure collide",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "queen-stephanie",
+    "crush-queen-stephanie",
+    "editorial-web-design",
+    "luxury-portfolio"
+  ],
+  "author": "Queen Stephanie",
+  "license": "UNLICENSED",
+  "private": true
+}

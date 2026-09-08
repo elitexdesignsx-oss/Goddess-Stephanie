@@ -2243,8 +2243,9 @@ ul, ol {
   }
 
   .site-header__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: auto;
     min-height: 64px;
     padding: max(12px, env(safe-area-inset-top)) 20px 12px;
@@ -2252,14 +2253,15 @@ ul, ol {
 
   .site-header__brand {
     min-width: 0;
+    flex: 1 1 auto;
   }
 
   .site-header__brand-name {
     display: block;
-    max-width: 8ch;
-    font-size: clamp(1.2rem, 5vw, 1.45rem);
-    line-height: 0.86;
-    letter-spacing: 0.14em;
+    font-size: clamp(1.05rem, 4.2vw, 1.35rem);
+    line-height: 0.95;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
   }
 
   .desktop-nav {
@@ -2270,29 +2272,18 @@ ul, ol {
     display: flex;
     width: 44px;
     height: 44px;
+    flex-shrink: 0;
   }
 
   .site-header__right {
-    display: contents;
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
+  /* Hide the header CTA pill on mobile to give Queen Stephanie brand name clean breathing room without overlapping */
   .site-header__right > .header-cta {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
-  }
-
-  .site-header__right > .menu-toggle-btn {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: end;
-  }
-
-  .header-cta {
-    min-height: 44px;
-    max-width: 172px;
-    padding-inline: 13px;
-    font-size: 0.7rem;
+    display: none;
   }
 
   .header-cta svg {
@@ -2857,3 +2848,35 @@ ul, ol {
     border-radius: 12px !important;
   }
 }
+
+/* ============================================================
+   MOBILE HEADER LUXURY SPACING FIX
+   ============================================================ */
+@media (max-width: 859px) {
+  .site-header__inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-inline: 20px !important;
+    gap: 16px !important;
+  }
+
+  .site-header__brand {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .site-header__brand-name {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    font-size: clamp(1.1rem, 4.8vw, 1.4rem) !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1 !important;
+  }
+
+  /* On screens where both brand name and CTA would collide, hide header CTA */
+  .site-header__right > .header-cta {
+    display: none !important;
+  }
+}
+
